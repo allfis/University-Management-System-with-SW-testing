@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d35">
+  <title>CampusCore | University Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section id="login-view" class="login-screen">
+    <div class="login-showcase">
+      <div class="brand brand-light"><span class="brand-mark">C</span><span>Campus<span class="brand-accent">Core</span></span></div>
+      <div class="showcase-copy">
+        <span class="eyebrow">UNIVERSITY MANAGEMENT PLATFORM</span>
+        <h1>One connected campus.<br><span>Smarter management.</span></h1>
+        <p>Manage your university community, keep records organized, and bring your campus operations together in one place.</p>
+      </div>
+      <div class="showcase-bottom"><span class="showcase-dot"></span> A simpler way to manage your institution</div>
+      <div class="showcase-orbit orbit-one"></div><div class="showcase-orbit orbit-two"></div>
+    </div>
+    <div class="login-panel">
+      <form id="login-form" class="login-card">
+        <div class="mobile-brand brand"><span class="brand-mark">C</span><span>Campus<span class="brand-accent">Core</span></span></div>
+        <span class="eyebrow">WELCOME BACK</span>
+        <h2>Sign in to your account</h2>
+        <p class="login-subtitle">Enter your credentials to access the management dashboard.</p>
+        <label for="login-username">Username</label>
+        <div class="input-shell"><span class="field-icon">@</span><input id="login-username" name="username" placeholder="Enter your username" required autocomplete="username" autofocus></div>
+        <label for="login-password">Password</label>
+        <div class="input-shell"><span class="field-icon">●</span><input id="login-password" name="password" type="password" placeholder="Enter your password" required autocomplete="current-password"></div>
+        <p id="login-error" class="error" role="alert" hidden></p>
+        <button class="btn primary login-submit" type="submit">Sign in <span>→</span></button>
+        <p class="secure-note"><span>⌑</span> Secure access protected by CampusCore</p>
+      </form>
+      <span class="login-copyright">© 2026 CampusCore · University Management System</span>
+    </div>
+  </section>
+
+  <div id="app-view" class="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="#"><span class="brand-mark">C</span><span>Campus<span class="brand-accent">Core</span></span></a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav id="tabs" class="side-nav"></nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon">✦</span><strong>Keep your campus organized</strong><p>Manage records and keep information up to date.</p></div>
+        <div class="sidebar-version">CAMPUSCORE <span>·</span> MANAGEMENT</div>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-separator">/</span><strong id="breadcrumb-current">Dashboard</strong></div>
+        <div class="topbar-right">
+          <div class="user-avatar" id="user-avatar">A</div>
+          <div class="user-meta"><strong id="user-name">Administrator</strong><span id="user-role">ADMIN</span></div>
+          <button id="logout-btn" class="logout-btn" type="button" title="Log out">↗ <span>Log out</span></button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="welcome-row">
+          <div><span class="eyebrow">OVERVIEW</span><h1>Good to see you, <span id="welcome-name">Admin</span>.</h1><p>Here’s what’s happening in your university workspace.</p></div>
+          <div class="date-chip"><span class="date-chip-icon">◷</span><span id="today-date">Management portal</span></div>
+        </section>
+
+        <section class="stats-grid" aria-label="Workspace summary">
+          <article class="stat-card stat-primary"><div class="stat-top"><span id="stat-label">Total records</span><span class="stat-icon">▤</span></div><strong id="stat-total">—</strong><span class="stat-caption">In the selected section</span></article>
+          <article class="stat-card"><div class="stat-top"><span>Current section</span><span class="stat-icon icon-violet">⌘</span></div><strong id="stat-section">—</strong><span class="stat-caption">Selected workspace</span></article>
+          <article class="stat-card"><div class="stat-top"><span>Access level</span><span class="stat-icon icon-green">♙</span></div><strong id="stat-role">—</strong><span class="stat-caption">Your account permissions</span></article>
+        </section>
+
+        <section class="management-section">
+          <div class="section-heading"><div><span class="eyebrow">DIRECTORY</span><h2 id="resource-title">Records</h2><p>View, add, update, and manage university records.</p></div><button id="add-btn" class="btn primary add-button" type="button"><span>＋</span> Add record</button></div>
+          <div class="table-card">
+            <div class="table-toolbar"><div><strong id="table-heading">All records</strong><span id="record-count" class="record-count">0 records</span></div><div class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search records..." aria-label="Search records"></div></div>
+            <div id="table-wrap" class="table-wrap"><div class="loading-state">Loading records...</div></div>
+            <div class="table-footer"><span id="table-footer-text">Showing records</span><span>CampusCore <b>·</b> Secure directory</span></div>
+          </div>
+        </section>
+        <footer class="page-footer">CampusCore University Management System <span>·</span> Built for a connected campus</footer>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="form-dialog" class="record-dialog">
+    <form id="record-form">
+      <div class="dialog-header"><div><span class="eyebrow">RECORD DETAILS</span><h3 id="dialog-title">Add record</h3><p>Enter the information below to save this record.</p></div><button type="button" id="cancel-btn" class="dialog-close" aria-label="Close">×</button></div>
+      <div id="form-fields" class="form-grid"></div>
+      <p id="form-error" class="error" role="alert" hidden></p>
+      <div class="dialog-actions"><button type="button" id="cancel-btn-secondary" class="btn secondary">Cancel</button><button type="submit" id="save-btn" class="btn primary">Save record <span>→</span></button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
