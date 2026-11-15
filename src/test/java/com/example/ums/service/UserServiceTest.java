@@ -110,7 +110,7 @@ class UserServiceTest {
         admin.setRole(Role.ADMIN);
 
         when(userRepository.findByIdAndRole(1L, Role.ADMIN)).thenReturn(Optional.of(admin));
-        when(userRepository.countByRole(Role.ADMIN)).thenReturn(1L);
+        when(userRepository.countByRole(Role.ADMIN)).thenReturn(2L);
 
         assertThatThrownBy(() -> service.delete(Role.ADMIN, 1L))
                 .isInstanceOf(ConflictException.class);
